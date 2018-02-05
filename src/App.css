@@ -2,24 +2,23 @@
   text-align: center;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
-}
-
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
-}
-
 .App-title {
+  padding: 48px 32px;
+  margin: 0 0 0 4;
+  background-color: red;
   font-size: 1.5em;
 }
+@media screen and (max-width: 400px) {
+  .App-title{
+      color: white;
+  }
+}
 
-.App-intro {
-  font-size: large;
+.card {
+  
+  box-shadow: 0 4px 14px 0px rgba(0, 0, 0,0.1), 0 3px 6px 0 rgba(0, 0, 0, 0.0);
+  margin: 12px;
+  padding: 24px;
 }
 
 @keyframes App-logo-spin {
