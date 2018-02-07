@@ -1,13 +1,10 @@
 import './App.css';
 
-
+import { Circle, Line } from 'rc-progress';
 import React, { Component } from 'react';
 
 import ReactDOM from 'react-dom';
-
 import logo from './logo.svg';
-
-import { Line, Circle } from 'rc-progress';
 
 class App extends Component {
 
@@ -54,17 +51,18 @@ class App extends Component {
           <h1 className="App-title">TEMYUNG</h1>
         </header>
         {
-          data.map(function(d, idx){
-            return <div class="container" >
-            <img src={d.img}/>
-            <div class="centered">{d.name}</div>
-              <div style={{ margin: 10, width: 200 }}>
-                <Circle strokeWidth="6" percent={this.state.percent} />
-                <Line strokeWidth="4" percent={this.state.percent} />
-                <button onClick={this.restart}>Restart</button>
-              </div>
+          data.map((d, idx) => {
+            return (
+             <div className="container">
+              <img src={d.img}/>
+                <div className="centered">{d.name}</div>
+                <div style={{ margin: 10, width: 200 }}>
+                  <Circle strokeWidth="6" percent={this.state.percent} />
+                  <Line strokeWidth="4" percent={this.state.percent} />
+                  <button onClick={this.restart}>Restart</button>
+                </div>
             </div>
-          })
+          )})
         }
       </div>
     );
