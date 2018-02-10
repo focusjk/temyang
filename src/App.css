@@ -10,6 +10,7 @@
   font-family: 'Assistant', sans-serif;
   color: white;
   font-weight: 700;
+  cursor: pointer;
 }
 @media screen and (max-width: 400px) {
   .App-title{
@@ -21,6 +22,7 @@
   box-shadow: 0 4px 14px 0px rgba(0, 0, 0,0.1), 0 3px 6px 0 rgba(0, 0, 0, 0.0);
   margin: 12px;
   padding: 24px;
+
 }
 
 .container img {
@@ -30,31 +32,40 @@
   max-height: 100px;
 }
 
+.container:active img {
+  width: 100%;
+  max-height: 102px;
+}
+
 /* Container holding the image and the text */
 .container {
-    position: relative;
-    text-align: center;
-    color: white;
-    margin-bottom: 1rem;
-    font-size: 1.5em;
-    font-family: 'Assistant', sans-serif;
-    font-weight: 600;
-    text-shadow: 2px 2px 4px #000000;
+  position: relative;
+  text-align: center;
+  color: white;
+  margin-bottom: 1rem;
+  font-size: 1.5em;
+  font-family: 'Assistant', sans-serif;
+  font-weight: 600;
+  text-shadow: 2px 2px 4px #000000;
+  cursor: pointer;
+}
+.container:active {
+
 }
 
 /* Centered text */
 .centered {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .bar{
   position: absolute;
-    top: 85%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+  top: 85%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 @keyframes App-logo-spin {
