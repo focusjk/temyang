@@ -2,8 +2,9 @@ import './App.css';
 
 import { Circle, Line } from 'rc-progress';
 import React, { Component } from 'react';
-import axios from 'axios';
+
 import ReactDOM from 'react-dom';
+import axios from 'axios';
 import logo from './logo.svg';
 
 class App extends Component {
@@ -13,10 +14,7 @@ class App extends Component {
 
     this.state = {
       percent: 0,
-      data:[{"name":"constructor Ekamai 13","img":"http://drive.google.com/uc?=view&id=1T7iy454QOXyHpMqKyQYrTE0JhNtV69wc","space":"13"},
-                  {"name":"Starbucks 1st fl Paragon","img":"http://drive.google.com/uc?export=view&id=10wYzZMgQMRMY1Xn_NyoO4IkND1LwW1bm","space":"86"},
-                  {"name":"Starbucks I'm Park","img":"http://drive.google.com/uc?export=view&id=1uzpFGjy1gPn4DiOKuLWL14xGM98iS4LJ","space":"43"},
-                  {"name":"Starbucks Siam Square One","img":"http://drive.google.com/uc?export=view&id=1VYGVsN95HhfcBLtzP7mMtREzNqQbSn_t","space":"97"}]
+      data: []
    };
     this.show = this.show.bind(this);
     console.log(this.state.data)
@@ -29,7 +27,7 @@ class App extends Component {
                   {"name":"Starbucks 1st fl Paragon","img":"http://drive.google.com/uc?export=view&id=1zRQcr2H3Tu6hSQTH0s2O5zXbf9y-5uPT","space":"86"},
                   {"name":"Starbucks I'm Park","img":"http://drive.google.com/uc?export=view&id=13aeitmqPAyTsoXshrpuyD5hjY9cVB91q","space":"43"},
                   {"name":"Starbucks Siam Square One","img":"http://drive.google.com/uc?export=view&id=1ewIhLQzIzZaKbRYpQKj77Pqu08Ya4tNn","space":"97"}]
-      this.setState({data: res2})
+      this.setState({data: res.data})
     }, (error) => {
       console.log('get error');
     })
@@ -70,7 +68,7 @@ class App extends Component {
             return (
               <div>
                 <div className='container' onClick={() => this.show(d.space,idx)} >
-                <img src={d.img}/>
+                <img src={d.img} style={{ height: '100px' }}/>
                   <div className="centered">{d.name}</div>
                   <div className="bar" style={{ margin: 0, width: 200 }}>
                     {selected == idx && <Line strokeWidth="4" percent={this.state.percent} strokeColor={this.state.color}/> }
