@@ -33,8 +33,23 @@ class App extends Component {
     })
   }
 
-  show(x,id) { 
-      this.setState({selected: id, percent: x});
+  show(x,id, data) { 
+    let newData = {
+      name: data.name,
+      img: data.img,
+      space: data.space,
+      click: parseInt(data.click) + 1,
+    }
+    axios.put('http://128.199.97.10:3000/coworking/addclick/' + data._id, newData).then((data) => {
+      console.log(data);
+      let newObj = data.data.msg;
+      let obj = this.state.data;
+      for(var i = 0; i < obj.length; i++) {
+        if(obj[i]._id == newObj._id) {
+          obj[i] = newObj;
+        }
+      }
+      this.setState({selected: id, percent: x, data: obj});
       if(x>=75){
         this.setState({color: '#FF260F'});
       }else if(x>=25){
@@ -42,6 +57,10 @@ class App extends Component {
       }else{
         this.setState({color: '#1DFF26'});
       }
+    }, (error) => {
+      console.log('click erroe');
+    });
+
 
   }
 
@@ -67,7 +86,7 @@ class App extends Component {
           data.map((d, idx) => {
             return (
               <div>
-                <div className='container' onClick={() => this.show(d.space,idx)} >
+                <div className='container' onClick={() => this.show(d.space,idx, d)} >
                 <img src={d.img} style={{ height: '100px' }}/>
                   <div className="centered">{d.name}</div>
                   <div className="bar" style={{ margin: 0, width: 200 }}>
