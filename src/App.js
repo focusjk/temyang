@@ -34,13 +34,8 @@ class App extends Component {
   }
 
   show(x,id, data) { 
-    let newData = {
-      name: data.name,
-      img: data.img,
-      space: data.space,
-      click: parseInt(data.click) + 1,
-    }
-    axios.put('http://128.199.97.10:3000/coworking/addclick/' + data._id, newData).then((data) => {
+    console.log('click')
+    axios.put('http://128.199.97.10:3000/coworking/addclick/' + data._id, {}).then((data) => {
       console.log(data);
       let newObj = data.data.msg;
       let obj = this.state.data;
