@@ -81,7 +81,6 @@ class App extends Component {
           data.map((d, idx) => {
             return (
               <div>
-                <a>
                 <div className='container' onClick={() => this.show(d.space,idx, d)} >
                 <img src={d.img} style={{ height: '100px' }}/>
                   <div className="centered">{d.name}</div>
@@ -89,7 +88,6 @@ class App extends Component {
                     {selected == idx && <Line strokeWidth="4" percent={this.state.percent} strokeColor={this.state.color}/> }
                   </div>
               </div>
-              </a>
             </div>
           )})
         }
