@@ -32,7 +32,7 @@
   max-height: 100px;
 }
 
-.container:active img {
+.container:hover img {
   width: 100%;
   max-height: 103px;
   opacity: 0.9;
