@@ -49,6 +49,7 @@
   font-weight: 600;
   text-shadow: 2px 2px 4px #000000;
   cursor: pointer;
+  -webkit-tap-highlight-color: red;
 }
 .container:active {
 
