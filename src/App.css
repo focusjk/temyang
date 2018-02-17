@@ -3,7 +3,7 @@
 }
 
 .App-title {
-  padding: 15px;
+  padding: 5px;
   margin: 0 0 0 4;
   background: linear-gradient(to bottom left, #f03137, #dd4f23);
   font-size: 2.5em;
@@ -11,7 +11,19 @@
   color: white;
   font-weight: 700;
   cursor: pointer;
+  position: fixed; /* Set the navbar to fixed position */
+  top: 0; /* Position the navbar at the top of the page */
+  width: 100%;
+  z-index:1;
 }
+
+.bottomBar {
+  overflow: hidden;
+  position: fixed;
+  bottom: 15px;
+  width: 100%;
+}
+
 @media screen and (max-width: 400px) {
   .App-title{
       color: white;
@@ -23,6 +35,12 @@
   margin: 12px;
   padding: 24px;
 
+}
+
+.content {
+  margin-top: 100px;
+  overflow: hidden;
+  z-index:2;
 }
 
 .container img {
@@ -72,6 +90,31 @@
   top: 85%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+.fa {
+    padding: 15px;
+    font-size: 30px;
+    width: 60px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 50%;
+    bottom: 20px;
+    right: 25px;
+    position: fixed;
+}
+
+/* Add a hover effect if you want */
+.fa:hover {
+    opacity: 0.7;
+}
+
+/* Set a specific color for each brand */
+
+/* Facebook */
+.fa-facebook {
+    background: #3B5998;
+    color: white;
 }
 
 @keyframes App-logo-spin {

@@ -73,24 +73,27 @@ class App extends Component {
     return (
       <div className="App">
 
-        <header className="App-header">
-    
-          <h1 className="App-title">TEMYUNG</h1>
-        </header>
+        <div className="App-title"><img src="http://drive.google.com/uc?export=view&id=1CspT1SFo3W8TbWiJ63y0NJBMz69c-LON"style={{ height: '70px' }}/></div>
+        <div className='content'>
+
         {
           data.map((d, idx) => {
-            return (
+            return ( 
               <div>
                 <div className='container' onClick={() => this.show(d.space,idx, d)} >
                 <img src={d.img} style={{ height: '100px' }}/>
                   <div className="centered">{d.name}</div>
                   <div className="bar" style={{ margin: 0, width: 200 }}>
-                    {selected == idx && <Line strokeWidth="4" percent={this.state.percent} strokeColor={this.state.color}/> }
+                    {selected == idx && <Line strokeWidth="4" trailWidth="4" trailColor="#D9D9D9" percent={this.state.percent} strokeColor={this.state.color}/> }
                   </div>
               </div>
             </div>
           )})
         }
+        </div>
+        <div class="">
+        <a href='https://www.facebook.com/temyungapp/' class="fa fa-facebook"></a>
+        </div>
       </div>
     );
   }
