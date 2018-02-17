@@ -48,7 +48,6 @@
   object-position: center;
   width: 100%;
   max-height: 100px;
-  -webkit-tap-highlight-color: rgba(0,0,0,0.5);
 }
 
 .xcontainer:hover img {
@@ -70,7 +69,6 @@
   font-weight: 500;
   text-shadow: 2px 2px 4px #000000;
   cursor: pointer;
-    -webkit-tap-highlight-color: rgba(0,0,0,0.5);
  
 }
 .container:active {
