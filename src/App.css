@@ -71,7 +71,6 @@
   text-shadow: 2px 2px 4px #000000;
   cursor: pointer;
   -webkit-tap-highlight-color: rgba(0,0,0,0.5);
- 
 }
 .container:active {
 
@@ -87,7 +86,7 @@
 
 .bar{
   position: absolute;
-  top: 85%;
+  top: 84%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
