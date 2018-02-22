@@ -4,9 +4,10 @@
 
 .App-title {
   padding: 5px;
-  margin: 0 0 0 4;
+  padding-right: 28px;
+  margin: 0 0 0 0;
   background: linear-gradient(to bottom left, #f03137, #dd4f23);
-  font-size: 2.5em;
+  font-size: 1em;
   font-family: 'Oswald', sans-serif;
   color: white;
   font-weight: 700;
@@ -15,6 +16,19 @@
   top: 0; /* Position the navbar at the top of the page */
   width: 100%;
   z-index:1;
+}
+
+.iconText {
+  font-size: 1.25em;
+  font-family: 'Oswald', sans-serif;
+  color: white;
+  font-weight: 500;
+  cursor: pointer;
+  position: fixed; /* Set the navbar to fixed position */
+  top: 0; /* Position the navbar at the top of the page */
+  width: 100%;
+  padding-top: 10px;
+  padding-left: 45px;
 }
 
 .bottomBar {
@@ -47,7 +61,7 @@
   object-fit: cover;
   object-position: center;
   width: 100%;
-  max-height: 100px;
+  max-height: 120px;
   -webkit-tap-highlight-color: rgba(0,0,0,0.5);
 }
 
@@ -60,7 +74,7 @@
 /* Container holding the image and the text */
 .container {
   position: relative;
-  max-height: 100px;
+  max-height: 120px;
   text-align: center;
   color: white;
   margin-bottom: 1rem;
@@ -79,16 +93,23 @@
 /* Centered text */
 .centered {
   position: absolute;
-  top: 50%;
+  top: 45%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
 
 .bar{
   position: absolute;
-  top: 84%;
+  top: 75%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+.barStatus{
+  position: absolute;
+  top:80%;
+  font-size: 0.4em;
+  font-weight: 400;
 }
 
 .fa {

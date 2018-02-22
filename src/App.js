@@ -23,10 +23,6 @@ class App extends Component {
   componentDidMount() {
     axios.get('http://128.199.97.10:3000/coworking/coworkinglist').then((res) => {
       console.log(res);
-      const res2 = [{"name":"Sheldon Ekamai 13","img":"http://drive.google.com/uc?=view&id=1IkslDiOCDdAHeLJD4uk9Tl5dopwtspIw","space":"13"},
-                  {"name":"Starbucks 1st fl Paragon","img":"http://drive.google.com/uc?export=view&id=1zRQcr2H3Tu6hSQTH0s2O5zXbf9y-5uPT","space":"86"},
-                  {"name":"Starbucks I'm Park","img":"http://drive.google.com/uc?export=view&id=13aeitmqPAyTsoXshrpuyD5hjY9cVB91q","space":"43"},
-                  {"name":"Starbucks Siam Square One","img":"http://drive.google.com/uc?export=view&id=1ewIhLQzIzZaKbRYpQKj77Pqu08Ya4tNn","space":"97"}]
       this.setState({data: res.data})
     }, (error) => {
       console.log('get error');
@@ -53,18 +49,13 @@ class App extends Component {
         this.setState({color: '#1DFF26'});
       }
     }, (error) => {
-      console.log('click erroe');
+      console.log('click error');
     });
 
 
   }
 
   render() {
-    const data1 = [{"name":"Sheldon Ekamai 13","img":"http://drive.google.com/uc?=view&id=1IkslDiOCDdAHeLJD4uk9Tl5dopwtspIw","space":"13"},
-                  {"name":"Starbucks 1st fl Paragon","img":"http://drive.google.com/uc?export=view&id=10wYzZMgQMRMY1Xn_NyoO4IkND1LwW1bm","space":"86"},
-                  {"name":"Starbucks I'm Park","img":"http://drive.google.com/uc?export=view&id=1uzpFGjy1gPn4DiOKuLWL14xGM98iS4LJ","space":"43"},
-                  {"name":"Starbucks Siam Square One","img":"http://drive.google.com/uc?export=view&id=1VYGVsN95HhfcBLtzP7mMtREzNqQbSn_t","space":"97"}];
-    
     const {data} = this.state
     console.log(data)
 
@@ -73,19 +64,30 @@ class App extends Component {
     return (
       <div className="App">
 
-        <div className="App-title"><img src="http://drive.google.com/uc?export=view&id=1CspT1SFo3W8TbWiJ63y0NJBMz69c-LON"style={{ height: '70px' }}/></div>
+        <div className="App-title">
+          <img src="http://drive.google.com/uc?export=view&id=1CspT1SFo3W8TbWiJ63y0NJBMz69c-LON"style={{ height: '70px' }}/>
+          <div className="iconText">BETA</div>
+        </div>
         <div className='content'>
 
         {
           data.map((d, idx) => {
             return ( 
+
               <div>
                 <div className='container' onClick={() => this.show(d.space,idx, d)} >
-                <img src={d.img} style={{ height: '100px' }}/>
-                  <div className="centered">{d.name}</div>
-                  <div className="bar" style={{ margin: 0, width: 200 }}>
-                    {selected == idx && <Line strokeWidth="4" trailWidth="4" trailColor="#D9D9D9" percent={this.state.percent} strokeColor={this.state.color}/> }
+
+                <img src={d.img} style={{ height: '120px' }}/>
+                <div className="centered">{d.name}</div>
+                <div className="bar" style={{ margin: 0, width: 200 }}>
+
+                {selected == idx && 
+                  <div>
+                  <Line strokeWidth="4" trailWidth="4" trailColor="#D9D9D9" percent={this.state.percent} strokeColor={this.state.color} /> 
+                  <div className="barStatus">Updated: {d.last_update}</div>
                   </div>
+                }
+                </div>
               </div>
             </div>
           )})
