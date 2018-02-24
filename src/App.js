@@ -14,7 +14,8 @@ class App extends Component {
 
     this.state = {
       percent: 0,
-      data: []
+      data: [],
+      isClicked: [],
    };
     this.show = this.show.bind(this);
     console.log(this.state.data)
@@ -23,15 +24,19 @@ class App extends Component {
   componentDidMount() {
     axios.get('http://128.199.97.10:3000/coworking/coworkinglist').then((res) => {
       console.log(res);
-      this.setState({data: res.data})
+      let myIsClicked = []
+      res.data.map((obj) => {
+        myIsClicked.push(false)
+      })
+      this.setState({data: res.data, isClicked: myIsClicked});
     }, (error) => {
       console.log('get error');
     })
   }
 
-  show(x,id, data) { 
+  show(x,idx, data2) { 
     console.log('click')
-    axios.put('http://128.199.97.10:3000/coworking/addclick/' + data._id, {}).then((data) => {
+    axios.put('http://128.199.97.10:3000/coworking/addclick/' + data2._id, {}).then((data) => {
       console.log(data);
       let newObj = data.data.msg;
       let obj = this.state.data;
@@ -40,7 +45,18 @@ class App extends Component {
           obj[i] = newObj;
         }
       }
-      this.setState({selected: id, percent: x, data: obj});
+
+      if(!this.state.isClicked[idx]) {
+        axios.put('http://128.199.97.10:3000/coworking/addclick2/' + data2._id, {}).then((data) => {
+          console.log('click2');
+        }, (error) => {
+          console.log('click2 error');
+        });
+      }  
+      let obj2 = this.state.isClicked;
+      obj2[idx] = true;
+
+      this.setState({selected: idx, percent: x, data: obj, isClicked: obj2});
       if(x>=75){
         this.setState({color: '#FF260F'});
       }else if(x>=25){
