@@ -51,6 +51,8 @@ class App extends Component {
         axios.get('http://freegeoip.net/json/').then((data) => {
           console.log(data);
           let objBody = data.data;
+          objBody.coworking_name = data2.name;
+          objBody.coworking_id = data2._id;
           axios.post('http://128.199.97.10:3000/coworking/addstatclick/', objBody).then(() => {
             console.log('update stat');
           })
