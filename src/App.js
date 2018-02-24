@@ -101,16 +101,13 @@ class App extends Component {
                 <div>
 
                 {selected == idx && 
-                  <div>
                   <div className="bar" style={{ margin: 0, width: 200 }}>
                     <Line strokeWidth="4" trailWidth="4" trailColor="#D9D9D9" percent={this.state.percent} strokeColor={this.state.color} /> 
                     <div className="barStatus">Updated: {d.last_update}</div>
                   </div>
-                  {d.name == 'SHELDON EKAMAI' && 
-                    <a href="https://www.facebook.com/temyungapp/posts/408607112928362" onclick="trackOutboundLink('https://www.facebook.com/temyungapp/posts/408607112928362'); return false;" className='button topRight'>FREE BOARDGAME CICK HERE!</a>
-                    }
-                  </div>
-
+                }
+                {d.name == 'SHELDON EKAMAI' && 
+                  <a href="https://www.facebook.com/temyungapp/posts/408607112928362" onclick="trackOutboundLink('https://www.facebook.com/temyungapp/posts/408607112928362'); return false;" className='button topRight'>FREE BOARDGAME CICK HERE!</a>
                 }
                 </div>
               </div>
