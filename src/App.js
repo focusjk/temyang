@@ -47,6 +47,15 @@ class App extends Component {
       }
 
       if(!this.state.isClicked[idx]) {
+
+        axios.get('http://freegeoip.net/json/').then((data) => {
+          console.log(data);
+          let objBody = data.data;
+          axios.post('http://128.199.97.10:3000/coworking/addstatclick/', objBody).then(() => {
+            console.log('update stat');
+          })
+        })
+
         axios.put('http://128.199.97.10:3000/coworking/addclick2/' + data2._id, {}).then((data) => {
           console.log('click2');
         }, (error) => {
