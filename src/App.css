@@ -98,6 +98,28 @@
   transform: translate(-50%, -50%);
 }
 
+.topRight {
+  position: absolute;
+  top: 22%;
+  left: 86%;
+  transform: translate(-50%, -50%);
+}
+
+a.button {
+    background-color: #f44336; /* Green */
+    border: none;
+    color: white;
+    padding: 4px 4px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+    margin: 4px 2px;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
 .bar{
   position: absolute;
   top: 75%;

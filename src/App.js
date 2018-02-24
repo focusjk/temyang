@@ -11,7 +11,6 @@ class App extends Component {
 
   constructor(props) {
     super(props);
-
     this.state = {
       percent: 0,
       data: []
@@ -51,41 +50,40 @@ class App extends Component {
     }, (error) => {
       console.log('click error');
     });
-
-
   }
 
   render() {
     const {data} = this.state
     console.log(data)
-
     const { selected } = this.state
 
     return (
       <div className="App">
-
         <div className="App-title">
           <img src="http://drive.google.com/uc?export=view&id=1CspT1SFo3W8TbWiJ63y0NJBMz69c-LON"style={{ height: '70px' }}/>
           <div className="iconText">BETA</div>
         </div>
         <div className='content'>
-
         {
           data.map((d, idx) => {
             return ( 
-
               <div>
                 <div className='container' onClick={() => this.show(d.space,idx, d)} >
-
                 <img src={d.img} style={{ height: '120px' }}/>
                 <div className="centered">{d.name}</div>
-                <div className="bar" style={{ margin: 0, width: 200 }}>
+                <div>
 
                 {selected == idx && 
                   <div>
-                  <Line strokeWidth="4" trailWidth="4" trailColor="#D9D9D9" percent={this.state.percent} strokeColor={this.state.color} /> 
-                  <div className="barStatus">Updated: {d.last_update}</div>
+                  <div className="bar" style={{ margin: 0, width: 200 }}>
+                    <Line strokeWidth="4" trailWidth="4" trailColor="#D9D9D9" percent={this.state.percent} strokeColor={this.state.color} /> 
+                    <div className="barStatus">Updated: {d.last_update}</div>
                   </div>
+                  {d.name == 'SHELDON EKAMAI' && 
+                    <a href="https://www.facebook.com/temyungapp/posts/408607112928362" onclick="trackOutboundLink('https://www.facebook.com/temyungapp/posts/408607112928362'); return false;" className='button topRight'>FREE BOARDGAME CICK HERE!</a>
+                    }
+                  </div>
+
                 }
                 </div>
               </div>
