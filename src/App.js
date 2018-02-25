@@ -106,7 +106,7 @@ class App extends Component {
                     <div className="barStatus">Updated: {d.last_update}</div>
                   </div>
                 }
-                {d.name == 'SHELDON EKAMAI' && 
+                {d.name == 'none' && 
                   <a href="https://www.facebook.com/temyungapp/posts/408607112928362" onclick="trackOutboundLink('https://www.facebook.com/temyungapp/posts/408607112928362'); return false;" className='button topRight'>FREE BOARDGAME CICK HERE!</a>
                 }
                 </div>
