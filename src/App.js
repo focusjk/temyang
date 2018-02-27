@@ -35,50 +35,39 @@ class App extends Component {
 
   show(x,idx, data2) { 
     console.log('click')
-    
-  //   axios.put('http://128.199.97.10:3000/coworking/addclick/' + data2._id, {}).then((data) => {
-  //     console.log(data);
-  //     let newObj = data.data.msg;
-  //     let obj = this.state.data;
-  //     for(var i = 0; i < obj.length; i++) {
-  //       if(obj[i]._id == newObj._id) {
-  //         obj[i] = newObj;
-  //       }
-  //     }
+   
+    axios.put('http://128.199.97.10:3000/coworking/addclick/' + data2._id, {}).then((data) => {
+      console.log(data);
+      let newObj = data.data.msg;
+      let obj = this.state.data;
+      for(var i = 0; i < obj.length; i++) {
+        if(obj[i]._id == newObj._id) {
+          obj[i] = newObj;
+        }
+      }
 
-  //     if(!this.state.isClicked[idx]) {
+      if(!this.state.isClicked[idx]) {
 
-  //       axios.get('http://freegeoip.net/json/').then((data) => {
-  //         console.log(data);
-  //         let objBody = data.data;
-  //         objBody.coworking_name = data2.name;
-  //         objBody.coworking_id = data2._id;
-  //         axios.post('http://128.199.97.10:3000/coworking/addstatclick/', objBody).then(() => {
-  //           console.log('update stat');
-  //         })
-  //       })
+        axios.get('http://freegeoip.net/json/').then((data) => {
+          console.log(data);
+          let objBody = data.data;
+          objBody.coworking_name = data2.name;
+          objBody.coworking_id = data2._id;
+          axios.post('http://128.199.97.10:3000/coworking/addstatclick/', objBody).then(() => {
+            console.log('update stat');
+          })
+        })
 
-  //       axios.put('http://128.199.97.10:3000/coworking/addclick2/' + data2._id, {}).then((data) => {
-  //         console.log('click2');
-  //       }, (error) => {
-  //         console.log('click2 error');
-  //       });
-  //     }  
-  //     let obj2 = this.state.isClicked;
-  //     obj2[idx] = true;
+        axios.put('http://128.199.97.10:3000/coworking/addclick2/' + data2._id, {}).then((data) => {
+          console.log('click2');
+        }, (error) => {
+          console.log('click2 error');
+        });
+      }  
+      let obj2 = this.state.isClicked;
+      obj2[idx] = true;
 
-  //     this.setState({selected: idx, percent: x, data: obj, isClicked: obj2});
-  //     if(x>=75){
-  //       this.setState({color: '#FF260F'});
-  //     }else if(x>=25){
-  //       this.setState({color: '#FFCD1B'});
-  //     }else{
-  //       this.setState({color: '#1DFF26'});
-  //     }
-  //   }, (error) => {
-  //     console.log('click error');
-  //   });
-        this.setState({selected: idx, percent: x});
+      this.setState({selected: idx, percent: x, data: obj, isClicked: obj2});
       if(x>=75){
         this.setState({color: '#FF260F'});
       }else if(x>=25){
@@ -86,6 +75,10 @@ class App extends Component {
       }else{
         this.setState({color: '#1DFF26'});
       }
+    }, (error) => {
+      console.log('click error');
+    });
+        
   }
 
   render() {
